@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
   // To everyone excent dude
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'He hast joned '));
 
-  socket.on('createMessage', ( message ) => {
+  socket.on('createMessage', ( message, callback ) => {
     console.log('createMessage', message);
 
     /* To everybody */
@@ -34,8 +34,8 @@ io.on('connection', (socket) => {
     // });
 
     /* To everybody but Me */
-    socket.broadcast.emit('newMessage', generateMessage(message.from,  message.text) );
-
+    io.emit('newMessage', generateMessage(message.from,  message.text) );
+    callback('This is from the server');
   });
 
   socket.on('disconnect', () => {

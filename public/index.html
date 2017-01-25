@@ -6,12 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script src="./socket.io/socket.io.js" charset="utf-8"></script>
+  <script src="./js/lib/jquery.min.js" charset="utf-8"></script>
   <script src="./js/index.js" charset="utf-8"></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
 <body>
   <p>Welcome to the chat app</p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-6">
+        <form class="form" action="" id="message-form">
+          <input name="message" type="text" class="form-control" placeholder="Message...">
+          <button class="btn btn-primary">Send</button>
+        </form>
+      </div>
+      <div class="col-xs-4 col-md-6">
+        <ol id="messages"></ol>
+      </div>
+    </div>
+
+  </div>
 
 
 </body>
