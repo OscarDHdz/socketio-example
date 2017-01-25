@@ -5,23 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script src="./socket.io/socket.io.js" charset="utf-8"></script>
+  <script src="./js/index.js" charset="utf-8"></script>
 
 
 </head>
 <body>
   <p>Welcome to the chat app</p>
 
-  <script src="./socket.io/socket.io.js" charset="utf-8"></script>
-  <script type="text/javascript">
-    var socket = io();
 
-    socket.on('connect', function () {
-      console.log('Connected to server');
-    });
-
-    socket.on('disconnect', () => {
-      console.error('Disconnected from server');
-    });
-  </script>
 </body>
 </html>
