@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ChatApp</title>
+  <script src="./socket.io/socket.io.js" charset="utf-8"></script>
+  <script src="./js/lib/jquery.min.js" charset="utf-8"></script>
+  <script src="./js/chat.js" charset="utf-8"></script>
+  <script src="./js/lib/moment.js" charset="utf-8"></script>
+  <script src="./js/lib/mustache.js" charset="utf-8"></script>
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="chat">
+
+  <div class="chat__sidebar">
+    <h3>People</h3>
+    <div id="users"></div>
+  </div>
+  <div class="chat__main">
+      <ol id="messages" class="chat__messages"></ol>
+
+      <div class="chat__footer">
+        <form class="" action="" id="message-form">
+          <input name="message" type="text" class="form-control" placeholder="Message..." autofocus autocomplete="off">
+          <button class="">Send</button>
+        </form>
+        <button class="" id="send-location">Send location</button>
+      </div>
+  </div>
+
+  <script id="message-template" type="text/template">
+    <li class="message">
+      <div class="message__title">
+        <h4>{{from}}</h4>
+        <span>{{createdAt}}</span>
+      </div>
+      <div class="message__body">
+        <p>{{text}}</p>
+      </div>
+    </li>
+  </script>
+  <script id="location-message-template" type="text/template">
+    <li class="message">
+      <div class="message__title">
+        <h4>{{from}}</h4>
+        <span>{{createdAt}}</span>
+      </div>
+      <div class="message__body">
+        <a target="_blank" href="{{url}}">My current Location</a>
+      </div>
+    </li>
+  </script>
+
+</body>
+</html>
