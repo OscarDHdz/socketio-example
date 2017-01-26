@@ -13,23 +13,25 @@ socket.on('connect', function () {
 
 socket.on('newMessage', function ( message ) {
   var formattedTime = moment(message.createdAt).format('h:mm a');
-  console.log('newMessage', message);
-  var li = $('<li></li>');
-  li.text(`${message.from} ${formattedTime}: ${message.text}`);
-  $('#messages').append(li);
+  var template = $('#message-template').html();
+  var html = Mustache.render(template, {
+    text: message.text,
+    from: message.from,
+    createdAt: formattedTime
+  });
+  $('#messages').append(html);
 });
 
 socket.on('newLocationMessage', function ( message ) {
   var formattedTime = moment(message.createdAt).format('h:mm a');
+  var template = $('#location-message-template').html();
+  var html = Mustache.render(template, {
+    text: message.url,
+    from: message.from,
+    createdAt: formattedTime
+  });
+  $('#messages').append(html);
 
-  console.log('newMessage', message);
-  var li = $('<li></li>');
-  var a = $('<a target="_blank">My current location</a>');
-  li.text(`${message.from} ${formattedTime}: `);
-  a.attr('href', `${message.url}`);
-
-  li.append(a);
-  $('#messages').append(li);
 });
 
 socket.on('disconnect', function () {
@@ -49,7 +51,7 @@ $(document).ready(function () {
       text: messageTextBox.val()
     }, function () {
       // Clear at Server aknowlaadge
-      messageTextBox.val('')
+      messageTextBox.val('').focus();
     });
 
 

@@ -9,6 +9,8 @@
   <script src="./js/lib/jquery.min.js" charset="utf-8"></script>
   <script src="./js/index.js" charset="utf-8"></script>
   <script src="./js/lib/moment.js" charset="utf-8"></script>
+  <script src="./js/lib/mustache.js" charset="utf-8"></script>
+
   <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -30,6 +32,29 @@
       </div>
   </div>
 
+  <script id="message-template" type="text/template">
+    <li class="message">
+      <div class="message__title">
+        <h4>{{from}}</h4>
+        <span>{{createdAt}}</span>
+      </div>
+      <div class="message__body">
+        <p>{{text}}</p>
+      </div>
+    </li>
+  </script>
+
+  <script id="location-message-template" type="text/template">
+    <li class="message">
+      <div class="message__title">
+        <h4>{{from}}</h4>
+        <span>{{createdAt}}</span>
+      </div>
+      <div class="message__body">
+        <a target="_blank" href="{{url}}">My current Location</a>
+      </div>
+    </li>
+  </script>
 
 </body>
 </html>
