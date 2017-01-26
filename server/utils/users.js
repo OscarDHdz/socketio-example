@@ -26,7 +26,7 @@ class Users {
     return user;
   }
   getUser (id) {
-    return this.users.filter((user) => user.id === id);
+    return this.users.filter((user) => user.id === id)[0];
   }
   getUserList (room) {
     // Return an array of names
