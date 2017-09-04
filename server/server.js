@@ -82,4 +82,5 @@ io.on('connection', (socket) => {
 
 server.listen(port, () => {
   console.log(`Started on port ${port}`);
+  console.log(`Chat romm started at: [36m${'http://localhost:' + port}[0m`);
 });
